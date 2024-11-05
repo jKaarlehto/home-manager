@@ -3,9 +3,9 @@
   inputs = {
     nixpkgs.url = "flake:nixpkgs/nixpkgs-unstable";
     home-manager.url = "flake:home-manager";
-    home-manager.follow = "nixpkgs";
+    home-manager.follows = "nixpkgs";
     nixvim.url = "github:nix-community/nixvim";
-    nixvim.follow = "nixpkgs";
+    nixvim.follows = "nixpkgs";
   };
   outputs = inputs:
     let
