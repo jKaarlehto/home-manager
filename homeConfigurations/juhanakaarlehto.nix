@@ -2,16 +2,9 @@
 let
   homeModule = { config, lib, pkgs, ... }: {
     imports = [
-      inputs.self.homeModules.nixvim
+      inputs.nixvim.homeManagerModules.nixvim
     ];
     config = {
-      flakeContext = {
-        programs = {
-          nixvim = {
-            enable = true;
-          };
-        };
-      };
       home = {
         homeDirectory = /Users/juhanakaarlehto;
         packages = [
@@ -31,6 +24,9 @@ let
       };
       programs = {
         home-manager = {
+          enable = true;
+        };
+        nixvim = {
           enable = true;
         };
         tmux = {
