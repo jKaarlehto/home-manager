@@ -28,6 +28,7 @@ let
         };
         nixvim = {
           enable = true;
+	  colorschemes.catppuccin.enable = true;
         };
         tmux = {
           enable = true;
