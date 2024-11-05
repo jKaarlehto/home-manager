@@ -2,10 +2,14 @@
   description = "home-manager config for juhanakaarlehto";
   inputs = {
     nixpkgs.url = "flake:nixpkgs/nixpkgs-unstable";
-    home-manager.url = "flake:home-manager";
-    home-manager.follows = "nixpkgs";
-    nixvim.url = "github:nix-community/nixvim";
-    
+    home-manager = {
+      url = "flake:home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs = inputs:
     let
