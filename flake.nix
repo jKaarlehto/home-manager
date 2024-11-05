@@ -5,7 +5,7 @@
     home-manager.url = "flake:home-manager";
     home-manager.follows = "nixpkgs";
     nixvim.url = "github:nix-community/nixvim";
-    nixvim.follows = "nixpkgs";
+    
   };
   outputs = inputs:
     let
