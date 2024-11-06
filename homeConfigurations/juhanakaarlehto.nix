@@ -6,6 +6,8 @@ let
     ];
     config = {
       home = {
+	stateVersion = "24.11";
+        username = "juhanakaarlehto";
         homeDirectory = /Users/juhanakaarlehto;
         packages = [
           pkgs.rectangle
@@ -15,20 +17,16 @@ let
         sessionVariables = {
           SHELL = "${pkgs.zsh}/bin/zsh";
         };
-        stateVersion = "24.11";
-        username = "juhanakaarlehto";
+        
+	# Install MacOS applications to the user environment if the targetPlatform is Darwin
+	home.file."Applications/home-manager".source = let
+	apps = pkgs.buildEnv {
+	  name = "home-manager-applications";
+	  paths = config.home.packages;
+	  pathsToLink = "/Applications";
+	};
+	  in mkIf pkgs.stdenv.targetPlatform.isDarwin "${apps}/Applications";
       };
-      {
-  # Install MacOS applications to the user environment if the targetPlatform is Darwin
-  home.file."Applications/home-manager".source = let
-  apps = pkgs.buildEnv {
-    name = "home-manager-applications";
-    paths = config.home.packages;
-    pathsToLink = "/Applications";
-  };
-  in mkIf pkgs.stdenv.targetPlatform.isDarwin "${apps}/Applications";
-}
-
 
       nixpkgs = {
         config = {
