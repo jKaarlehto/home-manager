@@ -10,6 +10,7 @@ let
         packages = [
           pkgs.rectangle
           pkgs.obsidian
+	  pkgs.github-desktop
         ];
         sessionVariables = {
           SHELL = "${pkgs.zsh}/bin/zsh";
