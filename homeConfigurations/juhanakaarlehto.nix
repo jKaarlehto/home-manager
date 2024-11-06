@@ -31,7 +31,7 @@ let
         $DRY_RUN_CMD mkdir "$app_folder"
         for app in $(find "$newGenPath/home-path/Applications" -type l -exec readlink -f {} \;)
         do
-          $DRY_RUN_CMD osascript \
+          $DRY_RUN_CMD /usr/bin/osascript \
             -e "tell app \"Finder\"" \
             -e "make new alias file at POSIX file \"$app_folder\" to POSIX file \"$app\"" \
             -e "set name of result to \"$(basename $app)\"" \
