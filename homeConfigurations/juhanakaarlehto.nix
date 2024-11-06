@@ -19,7 +19,7 @@ let
         };
         
 	# Install MacOS applications to the user environment if the targetPlatform is Darwin
-	home.file."Applications/home-manager".source = let
+	file."Applications/home-manager".source = let
 	apps = pkgs.buildEnv {
 	  name = "home-manager-applications";
 	  paths = config.home.packages;
