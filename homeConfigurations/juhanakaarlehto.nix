@@ -53,8 +53,9 @@ let
           defaultKeymap = "viins";
           enable = true;
           initExtra = "# Nix
-if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' fi \n
-# End Nix[ -z \"\$TMUX\" ] && { tmux attach || exec tmux new-session; } && exit";
+if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' fi
+# End Nix
+[ -z \"\$TMUX\" ] && { tmux attach || exec tmux new-session; } && exit";
         };
       };
     };
