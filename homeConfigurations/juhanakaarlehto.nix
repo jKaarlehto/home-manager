@@ -12,6 +12,7 @@ let
         packages = [
           pkgs.rectangle
           pkgs.obsidian
+	  pkgs.nodejs_22
         ];
         sessionVariables = {
           SHELL = "${pkgs.zsh}/bin/zsh";
