@@ -9,6 +9,7 @@
 	programs.nixvim = {
 		
 		defaultEditor = true;
+		relativenumber = true;
 		#extraConfigLua
 
 	}
