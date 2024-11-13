@@ -2,8 +2,10 @@
 let
   homeModule = { config, lib, pkgs, ... }: {
     imports = [
+	#Install nixvim
       inputs.nixvim.homeManagerModules.nixvim
-      #Maybe add homeModules nixvim config here?
+	#Import configs 
+      ./homeModules/nixvim.nix
     ];
     config = {
       home = {
