@@ -12,6 +12,12 @@
 						servers = {
 										pylsp.enable = true;
 										nil_ls.enable = true;
+										java_language_server.enable = true;
+										cssls.enable = true;
+										html.enable = true;
+										htmx.enable = true;
+										jsonls.enable = true;
+
 								};
 				};
 
