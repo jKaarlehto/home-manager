@@ -11,10 +11,10 @@
 
       opts = {
         relativenumber = true;
-	wrap = false;
-	nohlsearch = true;
-	tabstop = 4;
-	smartindent = true;  # Automatically indent new lines
+		wrap = false;
+		hlsearch = false;
+		tabstop = 4;
+		smartindent = true;  # Automatically indent new lines
         autoindent = true;   # Indent new lines based on the previous line's indent
         smarttab = true;
 
