@@ -1,5 +1,6 @@
 {
   description = "home-manager config for juhanakaarlehto";
+
   inputs = {
     nixpkgs.url = "flake:nixpkgs/nixpkgs-unstable";
     home-manager = {
@@ -11,18 +12,21 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs = inputs:
-    let
-      flakeContext = {
-        inherit inputs;
-      };
-    in
-    {
+  outputs = { nixpkgs, home-manager, nixvim, ...}@inputs:
+  	let 
+		system = "aarch64-darwin";		
+   in {
       homeConfigurations = {
-        juhanakaarlehto = import ./homeConfigurations/juhanakaarlehto.nix flakeContext;
-      };
-      homeModules = {
-        nixvim = import ./homeModules/nixvim.nix flakeContext;
+        juhanakaarlehto = home-manager.lib.homeManagerConfiguration {
+	modules = [
+			./homeConfigurations/juhanakaarlehto.nix
+			nixvim.homeManagerModules.nixvim	
+		];
+      	pkgs = import nixpkgs {system = system; };
+
+	extraSpecialArgs = {
+		 };
+	};
       };
     };
 }

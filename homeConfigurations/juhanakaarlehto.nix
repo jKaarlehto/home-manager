@@ -1,12 +1,5 @@
-{ inputs, ... }@flakeContext:
-let
-  homeModule = { config, lib, pkgs, ... }: {
-    imports = [
-	#Install nixvim
-      inputs.nixvim.homeManagerModules.nixvim
-	#Import configs 
-      ./homeModules/nixvim.nix
-    ];
+ { config, lib, pkgs, extraSpecialArgs, ... }:
+ {
     config = {
       home = {
 	stateVersion = "24.11";
@@ -59,18 +52,4 @@ let
         };
       };
     };
-  };
-  nixosModule = { ... }: {
-    home-manager.users.juhanakaarlehto = homeModule;
-  };
-in
-(
-  (
-    inputs.home-manager.lib.homeManagerConfiguration {
-      modules = [
-        homeModule
-      ];
-      pkgs = inputs.nixpkgs.legacyPackages.aarch64-darwin;
-    }
-  ) // { inherit nixosModule; }
-)
+}
