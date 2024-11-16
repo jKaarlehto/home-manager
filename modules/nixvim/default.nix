@@ -11,7 +11,7 @@
 
       opts = {
         relativenumber = true;
-	nowrap = true;
+	wrap = false;
 	nohlsearch = true;
 	tabstop = 4;
 	smartindent = true;  # Automatically indent new lines
