@@ -1,5 +1,7 @@
  { config, lib, pkgs, extraSpecialArgs, ... }:
  {
+ 
+      imports = [ ../modules/nixvim/default.nix ];
     config = {
       home = {
 	stateVersion = "24.11";
