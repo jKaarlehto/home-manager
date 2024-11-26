@@ -11,6 +11,8 @@
           pkgs.rectangle
           pkgs.obsidian
 	  pkgs.nodejs_22
+	  pkgs.discord
+	  pkgs.google-chrome
         ];
         sessionVariables = {
           SHELL = "${pkgs.zsh}/bin/zsh";
@@ -31,6 +33,9 @@
           enable = true;
 	  colorschemes.catppuccin.enable = true;
         };
+	vscode = {
+	    enable = true;
+	    };
         tmux = {
           enable = true;
           extraConfig = "set-option -g default-command \"\$SHELL";
